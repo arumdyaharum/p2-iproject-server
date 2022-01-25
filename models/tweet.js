@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     tweetId: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notNull: {msg: "Tweet ID is required"},

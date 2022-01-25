@@ -18,7 +18,7 @@ module.exports = {
       },
       tweetId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       folderId: {
         allowNull: false,
