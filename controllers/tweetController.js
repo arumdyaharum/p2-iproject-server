@@ -57,6 +57,16 @@ class Controller {
       next(err)
     }
   }
+
+  static async deleteTweets(req, res, next) {
+    try {
+      const id = req.params.tweetId
+      await Tweet.destroy({where: {id}})
+      res.status(200).json({message: `Tweet with id ${id} deleted`})
+    } catch(err) {
+      next(err)
+    }
+  }
 }
 
 module.exports = Controller
