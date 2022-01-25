@@ -4,6 +4,7 @@ const folderRouter = require('./folder.js')
 const tweetRouter = require('./tweet.js')
 
 router.post('/register', authController.postRegister)
+router.post('/login', authController.postLogin)
 
 router.use('/folders', folderRouter)
 router.use('/tweets', tweetRouter)
