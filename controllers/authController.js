@@ -40,6 +40,22 @@ class Controller {
       next(err)
     }
   }
+
+  static async getKeys(req, res, next) {
+    try {
+      const type = req.query.for
+      const HAPPI_KEY = process.env.HAPPI_KEY
+      const ABSTRACT_KEY = process.env.ABSTRACT_KEY
+      const key = type === "happi" ? HAPPI_KEY : type === "abstract" ? ABSTRACT_KEY : ''
+      if(key) {
+        res.status(200).json({key})
+      } else {
+        throw({name: "invalidKey"})
+      }
+    } catch(err) {
+      next(err)
+    }
+  }
 }
 
 module.exports = Controller
