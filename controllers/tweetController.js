@@ -24,6 +24,21 @@ class Controller {
       next(err)
     }
   }
+
+  static async getTweets(req, res, next) {
+    try {
+      const id = req.params.id
+      const folder = await Folder.findOne({where: {id}})
+      if(folder) {
+        const result = await Tweet.findAll({where: {folderId: folder.id}})
+        res.status(200).json(result)
+      } else {
+        throw({name: "notfound"})
+      }
+    } catch(err) {
+      next(err)
+    }
+  }
 }
 
 module.exports = Controller
