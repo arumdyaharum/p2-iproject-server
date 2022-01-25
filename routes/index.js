@@ -6,7 +6,6 @@ const authentication = require('../middlewares/authentication.js')
 
 router.post('/register', authController.postRegister)
 router.post('/login', authController.postLogin)
-router.get('/keys', authController.getKeys)
 router.get('/users', authentication, authController.getUsers)
 
 router.use('/folders', folderRouter)
