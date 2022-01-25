@@ -19,6 +19,9 @@ const errorHandler = (err, req, res, next) => {
     case "forbidden":
       res.status(403).json({message:"Forbidden"})
       break;
+    case "notfound":
+      res.status(404).json({message: "Data not found!"})
+      break;
     default:
       res.status(500).json({message: "Internal server error"})
       break;
