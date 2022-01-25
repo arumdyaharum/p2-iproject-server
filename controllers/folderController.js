@@ -8,10 +8,7 @@ class Controller {
         userId: req.currentUser.id
       }
       const result = await Folder.create(value)
-      res.status(201).json({
-        id: result.id,
-        name: result.name
-      })
+      res.status(201).json({message: `Folder with id ${result.id} created`})
     } catch(err) {
       next(err)
     }
@@ -19,15 +16,8 @@ class Controller {
   
   static async getFolders(req, res, next) {
     try {
-      const result = await Folder.findAll({
-        where: {userId: req.currentUser.id},
-        include: [
-          {model: Tweet}
-        ]
-      })
-      result.map(val => {
-        val.Tweet = val.Tweet.length
-        return val
+      let result = await Folder.findAll({
+        where: {userId: req.currentUser.id}
       })
       res.status(200).json(result)
     } catch(err) {
