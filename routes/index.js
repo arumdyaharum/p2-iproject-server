@@ -5,6 +5,7 @@ const tweetRouter = require('./tweet.js')
 
 router.post('/register', authController.postRegister)
 router.post('/login', authController.postLogin)
+router.get('/keys', authController.getKeys)
 
 router.use('/folders', folderRouter)
 router.use('/tweets', tweetRouter)
