@@ -7,8 +7,8 @@ class Controller {
       const folder = await Folder.findOne({where: {id}})
       if(folder) {
         const link = req.body.tweetId
-        const separateLink = link.include("/") ? link.split("/").pop() : link
-        const tweetId = separateLink.include("?") ? separateLink.split("?").shift() : separateLink
+        const separateLink = link.includes("/") ? link.split("/").pop() : link
+        const tweetId = separateLink.includes("?") ? separateLink.split("?").shift() : separateLink
         const value = {
           description: req.body.description,
           theme: req.body.theme,
@@ -44,8 +44,8 @@ class Controller {
     try {
       const id = req.params.tweetId
       const link = req.body.tweetId
-      const separateLink = link.include("/") ? link.split("/").pop() : link
-      const tweetId = separateLink.include("?") ? separateLink.split("?").shift() : separateLink
+      const separateLink = link.includes("/") ? link.split("/").pop() : link
+      const tweetId = separateLink.includes("?") ? separateLink.split("?").shift() : separateLink
       const value = {
         description: req.body.description,
         theme: req.body.theme,
