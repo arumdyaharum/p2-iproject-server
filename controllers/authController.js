@@ -56,6 +56,15 @@ class Controller {
       next(err)
     }
   }
+
+  static async getUsers(req, res, next) {
+    try {
+      const user = await User.findOne({where: {id: req.currentUser.id}})
+      res.status(200).json(user)
+    } catch(err) {
+      next(err)
+    }
+  }
 }
 
 module.exports = Controller
