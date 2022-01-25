@@ -45,6 +45,16 @@ class Controller {
       next(err)
     }
   }
+
+  static async deleteFolders(req, res, next) {
+    try {
+      const id = req.params.id
+      await Folder.destroy({where: {id}})
+      res.status(200).json({message: `Folder with id ${id} deleted`})
+    } catch(err) {
+      next(err)
+    }
+  }
 }
 
 module.exports = Controller
