@@ -16,6 +16,9 @@ const errorHandler = (err, req, res, next) => {
     case "unauth":
       res.status(401).json({ message: "Invalid Access" })
       break;
+    case "forbidden":
+      res.status(403).json({message:"Forbidden"})
+      break;
     default:
       res.status(500).json({message: "Internal server error"})
       break;
