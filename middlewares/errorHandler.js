@@ -11,6 +11,11 @@ const errorHandler = (err, req, res, next) => {
       break;
     case "invalidKey":
       res.status(401).json({message: "Invalid key type"})
+      break;
+    case "JsonWebTokenError":
+    case "unauth":
+      res.status(401).json({ message: "Invalid Access" })
+      break;
     default:
       res.status(500).json({message: "Internal server error"})
       break;
