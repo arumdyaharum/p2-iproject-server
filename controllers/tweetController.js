@@ -36,6 +36,10 @@ class Controller {
         let value = {
           where: {folderId: folder.id}
         }
+
+        const tweets = await Tweet.findAll(value)
+        const totalPages = Math.ceil(tweets / items)
+
         if(size) {
           value.limit = items
         }
@@ -43,7 +47,7 @@ class Controller {
           value.offset = (toPage - 1) * items
         }
         const result = await Tweet.findAll(value)
-        res.status(200).json(result)
+        res.status(200).json({totalPages, data: result})
       } else {
         throw({name: "notfound"})
       }
