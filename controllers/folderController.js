@@ -25,7 +25,7 @@ class Controller {
       }
 
       const folders = await Folder.findAll(value)
-      const totalPages = Math.ceil(folders / items)
+      const totalPages = Math.ceil(folders.length / items) || 1
 
       if(size) {
         value.limit = items

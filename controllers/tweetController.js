@@ -38,7 +38,7 @@ class Controller {
         }
 
         const tweets = await Tweet.findAll(value)
-        const totalPages = Math.ceil(tweets / items)
+        const totalPages = Math.ceil(tweets.length / items) || 1
 
         if(size) {
           value.limit = items
