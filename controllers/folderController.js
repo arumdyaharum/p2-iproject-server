@@ -36,6 +36,16 @@ class Controller {
     }
   }
 
+  static async getFolderById(req, res, next) {
+    try {
+      const id = req.params.id
+      const result = await Folder.findOne({where: {id}})
+      res.status(200).json(result)
+    } catch(err) {
+      next(err)
+    }
+  }
+
   static async putFolders(req, res, next) {
     try {
       const value = { name: req.body.name }
