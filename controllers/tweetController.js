@@ -52,6 +52,16 @@ class Controller {
     }
   }
 
+  static async getTweetById(req, res, next) {
+    try {
+      const id = req.params.id
+      const result = await Tweet.findOne({where: {id}})
+      res.status(200).json(result)
+    } catch(err) {
+      next(err)
+    }
+  }
+
   static async putTweets(req, res, next) {
     try {
       const id = req.params.tweetId
