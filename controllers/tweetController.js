@@ -30,7 +30,19 @@ class Controller {
       const id = req.params.id
       const folder = await Folder.findOne({where: {id}})
       if(folder) {
-        const result = await Tweet.findAll({where: {folderId: folder.id}})
+        const { page, size } = req.query
+        const items = +size || 8 
+        const toPage = +page || 1
+        let value = {
+          where: {folderId: folder.id}
+        }
+        if(size) {
+          value.limit = items
+        }
+        if(page) {
+          value.offset = (toPage - 1) * items
+        }
+        const result = await Tweet.findAll(value)
         res.status(200).json(result)
       } else {
         throw({name: "notfound"})
