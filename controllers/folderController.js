@@ -23,6 +23,10 @@ class Controller {
       let value = {
         where: {userId: req.currentUser.id}
       }
+
+      const folders = await Folder.findAll(value)
+      const totalPages = Math.ceil(folders / items)
+
       if(size) {
         value.limit = items
       }
@@ -30,7 +34,7 @@ class Controller {
         value.offset = (toPage - 1) * items
       }
       const result = await Folder.findAll(value)
-      res.status(200).json(result)
+      res.status(200).json({totalPages, data: result})
     } catch(err) {
       next(err)
     }
