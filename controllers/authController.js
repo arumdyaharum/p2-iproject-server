@@ -60,7 +60,7 @@ class Controller {
         from: 'Tweet Filing <tweetfiling@gmail.com>',
         to: email,
         subject: 'Konfirmasi Pendaftaran Tweet Filing',
-        text: `
+        html: `
         <p>Berikut adalah kode OTP untuk melanjutkan proses pendaftaran.</p>
         <h3>Kode OTP : ${password}<h3>
         `
