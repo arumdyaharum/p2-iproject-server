@@ -109,9 +109,9 @@ class Controller {
     }
   }
 
-  static async ggetUsersByIdetUsers(req, res, next) {
+  static async getUsersById(req, res, next) {
     try {
-      const user = await User.findOne({where: {id: req.params.id}})
+      const user = await User.findOne({where: {email: req.params.email}})
       if(user) {
         res.status(200).json(user)
       } else {
