@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles --runInBand --forceExit",
-    "start": "npx nodemon ./bin/www.js"
+    "start": "node ./bin/www.js"
   },
   "repository": {
     "type": "git",
