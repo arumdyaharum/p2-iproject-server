@@ -9,7 +9,7 @@ router.get('/email', authController.getEmail)
 router.post('/otp', authController.postOTP)
 router.post('/login', authController.postLogin)
 router.get('/users', authentication, authController.getUsers)
-router.get('/users/:id', authController.getUsersById)
+router.get('/users/:email', authController.getUsersById)
 
 router.use('/folders', folderRouter)
 router.use('/tweets', tweetRouter)
