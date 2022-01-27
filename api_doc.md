@@ -210,13 +210,8 @@ _Response (200 - OK)_
   "createdAt": "date",
   "updatedAt": "date"
 }
-```
-
-_Response (404 - Not Found)_
-
-```json
+OR
 {
-  "message": "Data not found!"
 }
 ```
 
