@@ -1,0 +1,5 @@
+npx sequelize-cli model:generate --name User --attributes username:string,email:string,password:string
+
+npx sequelize-cli model:generate --name Folder --attributes name:string,userId:integer
+
+npx sequelize-cli model:generate --name Tweet --attributes description:string,theme:string,tweetId:integer,folderId:integer
