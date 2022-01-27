@@ -108,6 +108,19 @@ class Controller {
       next(err)
     }
   }
+
+  static async ggetUsersByIdetUsers(req, res, next) {
+    try {
+      const user = await User.findOne({where: {id: req.params.id}})
+      if(user) {
+        res.status(200).json(user)
+      } else {
+        throw({name: "notfound"})
+      }
+    } catch(err) {
+      next(err)
+    }
+  }
 }
 
 module.exports = Controller
