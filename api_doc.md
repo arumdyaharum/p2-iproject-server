@@ -187,7 +187,7 @@ _Response (200 - OK)_
 
 &nbsp;
 
-## 6. GET /users/:id
+## 6. GET /users/:email
 
 Request:
 
@@ -195,7 +195,7 @@ Request:
 
 ```json
 {
-  "id": "integer"
+  "email": "string"
 }
 ```
 
