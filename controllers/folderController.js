@@ -55,7 +55,7 @@ class Controller {
       const value = { name: req.body.name }
       const id = req.params.id
       await Folder.update(value, {where: {id}})
-      res.status(200).json({message: `Folder with id ${id} Updated`})
+      res.status(200).json({message: `Folder with id ${id} updated`})
     } catch(err) {
       next(err)
     }

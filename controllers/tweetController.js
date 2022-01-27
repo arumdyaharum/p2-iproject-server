@@ -60,7 +60,11 @@ class Controller {
     try {
       const id = req.params.id
       const result = await Tweet.findOne({where: {id}})
-      res.status(200).json(result)
+      if(result) {
+        res.status(200).json(result)
+      } else {
+        throw({name: "notfound"})
+      }
     } catch(err) {
       next(err)
     }
