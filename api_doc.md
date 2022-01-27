@@ -195,7 +195,7 @@ Request:
 
 ```json
 {
-  "access_token": "string"
+  "id": "integer"
 }
 ```
 
