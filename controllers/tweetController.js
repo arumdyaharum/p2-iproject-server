@@ -34,7 +34,8 @@ class Controller {
         const items = +size || 8 
         const toPage = +page || 1
         let value = {
-          where: {folderId: folder.id}
+          where: {folderId: folder.id},
+          order: [['id', 'ASC']]
         }
 
         const tweets = await Tweet.findAll(value)

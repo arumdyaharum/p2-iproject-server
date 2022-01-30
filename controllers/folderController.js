@@ -21,7 +21,8 @@ class Controller {
       const toPage = +page || 1
 
       let value = {
-        where: {userId: req.currentUser.id}
+        where: {userId: req.currentUser.id},
+        order: [['id', 'ASC']]
       }
 
       const folders = await Folder.findAll(value)
