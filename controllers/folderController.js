@@ -66,6 +66,7 @@ class Controller {
     try {
       const id = req.params.id
       await Folder.destroy({where: {id}})
+      await Tweet.destroy({where: {folderId: id}})
       res.status(200).json({message: `Folder with id ${id} deleted`})
     } catch(err) {
       next(err)
